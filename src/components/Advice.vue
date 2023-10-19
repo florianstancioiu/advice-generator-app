@@ -16,7 +16,7 @@ export default {
     fetchAdvice: function () {
       const apiUrl = 'https://api.adviceslip.com/advice';
 
-      fetch(apiUrl)
+      fetch(apiUrl, { cache: 'no-store' })
         .then((result) => result.json())
         .then((data) => {
           const fetchedAdvice = data.slip;
@@ -51,7 +51,7 @@ export default {
       />
     </div>
     <img
-      @click="fetchAdvice"
+      @click.prevent="fetchAdvice"
       class="absolute block left-[50%] translate-x-[-50%] bottom-0 translate-y-[50%] cursor-pointer hover:shadow-green hover:shadow-lg rounded-full"
       src="/next-quote.png"
       alt="Get next quote"
