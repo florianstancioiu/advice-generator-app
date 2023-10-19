@@ -9,12 +9,29 @@ export default {
       },
     };
   },
+  mounted: function () {
+    this.fetchAdvice();
+  },
+  methods: {
+    fetchAdvice: function () {
+      const apiUrl = 'https://api.adviceslip.com/advice';
+
+      fetch(apiUrl)
+        .then((result) => result.json())
+        .then((data) => {
+          const fetchedAdvice = data.slip;
+
+          this.advice.id = fetchedAdvice.id;
+          this.advice.text = fetchedAdvice.advice;
+        });
+    },
+  },
 };
 </script>
 
 <template>
   <div
-    class="max-w-[342px] sm:max-w-[540px] sm:px-[48px] sm:pt-[48px] mx-auto bg-dark-advice rounded-[10px] text-center pt-[40px] px-[24px] relative pb-[70px] sm:pb-[80px]"
+    class="w-[342px] sm:w-[540px] sm:px-[48px] sm:pt-[48px] mx-auto bg-dark-advice rounded-[10px] text-center pt-[40px] px-[24px] relative pb-[70px] sm:pb-[80px]"
   >
     <p
       class="text-green text-xs mb-[24px] uppercase font-manrope font-extrabold"
@@ -34,7 +51,8 @@ export default {
       />
     </div>
     <img
-      class="absolute left-[50%] translate-x-[-50%] bottom-0 translate-y-[50%] cursor-pointer hover:shadow-green hover:shadow-lg rounded-full"
+      @click="fetchAdvice"
+      class="absolute block left-[50%] translate-x-[-50%] bottom-0 translate-y-[50%] cursor-pointer hover:shadow-green hover:shadow-lg rounded-full"
       src="next-quote.png"
       alt="Get next quote"
     />
