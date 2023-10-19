@@ -1,19 +1,30 @@
 <script>
-export default {};
+export default {
+  data: () => {
+    return {
+      advice: {
+        id: 117,
+        text: `It is easy to sit up and take notice, what's difficult is getting up and
+        taking action.`,
+      },
+    };
+  },
+};
 </script>
 
 <template>
   <div
-    class="max-w-[342px] mx-auto bg-dark-advice rounded-[10px] text-center pt-[40px] px-[24px] relative pb-[70px]"
+    class="max-w-[342px] sm:max-w-[540px] sm:px-[48px] sm:pt-[48px] mx-auto bg-dark-advice rounded-[10px] text-center pt-[40px] px-[24px] relative pb-[70px] sm:pb-[80px]"
   >
     <p
       class="text-green text-xs mb-[24px] uppercase font-manrope font-extrabold"
     >
-      advice #117
+      advice #{{ advice.id }}
     </p>
-    <p class="text-white text-2xl pb-[32px] font-manrope font-extrabold">
-      “It is easy to sit up and take notice, what's difficult is getting up and
-      taking action.”
+    <p
+      class="text-white text-2xl pb-[32px] font-manrope font-extrabold sm:pb-[48px]"
+    >
+      “{{ advice.text }}”
     </p>
     <div class="border-b-[1px] border-b-grayish-blue relative">
       <img
