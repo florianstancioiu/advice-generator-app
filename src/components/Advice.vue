@@ -46,14 +46,14 @@ export default {
     <div class="border-b-[1px] border-b-grayish-blue relative">
       <img
         class="absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] bg-dark-advice px-[16px]"
-        src="quote-delimiter.png"
+        src="/quote-delimiter.png"
         alt=""
       />
     </div>
     <img
       @click="fetchAdvice"
       class="absolute block left-[50%] translate-x-[-50%] bottom-0 translate-y-[50%] cursor-pointer hover:shadow-green hover:shadow-lg rounded-full"
-      src="next-quote.png"
+      src="/next-quote.png"
       alt="Get next quote"
     />
   </div>
